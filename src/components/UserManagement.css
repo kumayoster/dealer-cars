@@ -1,0 +1,119 @@
+/* Custom styles for User Management */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #f3f4f6; /* light gray background */
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1f2937; /* dark gray text */
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #4b5563; /* gray text */
+  margin-bottom: 1rem;
+}
+
+.user-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.user-card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details p {
+  margin: 0.25rem 0;
+}
+
+.user-details .username {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #1f2937; /* dark text */
+}
+
+.user-details .name {
+  color: #6b7280; /* medium gray text */
+}
+
+.user-details .role {
+  font-size: 0.875rem;
+  color: #9ca3af; /* light gray text */
+}
+
+.user-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.edit-btn {
+  background-color: #3b82f6; /* blue */
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #2563eb; /* darker blue */
+}
+
+.delete-btn {
+  background-color: #ef4444; /* red */
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626; /* darker red */
+}
+
+input, select {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db; /* light gray border */
+  border-radius: 0.5rem;
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: #3b82f6; /* focus blue border */
+  outline: none;
+}
+
+.save-btn {
+  background-color: #10b981; /* green */
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #059669; /* darker green */
+}

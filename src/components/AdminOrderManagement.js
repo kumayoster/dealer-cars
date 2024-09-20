@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { orderService } from '../services/orderService';
+import './AdminOrders.css'; // Import the custom CSS
 
 const AdminOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -12,9 +13,8 @@ const AdminOrders = () => {
       };
       fetchOrders();
     } catch (error) {
-
+      console.error("Error fetching orders:", error);
     }
-
   }, []);
 
   const updateOrderStatus = async (orderId, newStatus) => {
@@ -24,35 +24,34 @@ const AdminOrders = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">Manage Orders</h1>
+    <div className="container">
+      <h1>Manage Orders</h1>
 
-      <table className="min-w-full table-auto">
-        <thead className="bg-gray-800 text-white">
+      <table>
+        <thead>
           <tr>
-            <th className="px-4 py-2">Name</th>
-            <th className="px-4 py-2">Car</th>
-            <th className="px-4 py-2">Tanggal Order</th>
-            <th className="px-4 py-2">Status</th>
-            <th className="px-4 py-2">Actions</th>
+            <th>Name</th>
+            <th>Car</th>
+            <th>Tanggal Order</th>
+            <th>Status</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {orders.map((order) => (
-            <tr key={order.id} className="bg-gray-100">
-              <td className="border px-4 py-2">{order.customer}</td>
-              <td className="border px-4 py-2">{order.car.name}</td>
-              <td className="border px-4 py-2">{new Date(order.orderDate).toLocaleDateString()}</td>
-              <td className="border px-4 py-2">
+            <tr key={order.id}>
+              <td>{order.customer}</td>
+              <td>{order.car.name}</td>
+              <td>{new Date(order.orderDate).toLocaleDateString()}</td>
+              <td>
                 {order.status === 0
                   ? 'Processing'
                   : order.status === 1
                     ? 'Delivering'
                     : 'Delivered'}
               </td>
-              <td className="border px-4 py-2">
+              <td>
                 <button
-                  className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-3 rounded mr-2"
                   onClick={() => updateOrderStatus(order.id, order.status + 1)}
                   disabled={order.status === 2}
                 >

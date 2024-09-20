@@ -1,0 +1,112 @@
+/* Container for centering the login box */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7fafc; /* Light background */
+}
+
+/* Styling the login box */
+.login-box {
+  width: 100%;
+  max-width: 350px;
+}
+
+/* Styling the form */
+.login-form {
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 32px;
+  margin-bottom: 16px;
+}
+
+/* Title styling */
+.login-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+/* Error message styling */
+.login-error {
+  color: #e53e3e;
+  text-align: center;
+  background-color: #fed7d7;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 16px;
+}
+
+/* Form label styling */
+.form-label {
+  display: block;
+  color: #4a5568;
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Form input styling */
+.form-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #4a5568;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+/* Actions container */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Primary button styling */
+.btn {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #4299e1;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #2b6cb0;
+  transform: scale(1.05);
+}
+
+/* Secondary button styling */
+.btn-secondary {
+  background-color: #a0aec0;
+  color: white;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #718096;
+  transform: scale(1.05);
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import userService from '../services/userService';
+import './UserManagement.css'; // Import the custom CSS
 
 const UserManagement = () => {
     const [users, setUsers] = useState([]);
@@ -32,57 +33,57 @@ const UserManagement = () => {
     };
 
     return (
-        <div className="container mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
-            <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">User Management</h1>
+        <div className="container">
+            <h1>User Management</h1>
 
             <div>
-                <h2 className="font-semibold text-lg text-gray-700 mb-4">Users List</h2>
+                <h2>Users List</h2>
                 {users.map((user) => (
-                    <div key={user.id} className="flex justify-between p-4 items-center bg-white rounded-lg shadow-md mb-4 hover:shadow-lg transition-shadow duration-200">
+                    <div key={user.id} className="user-card">
                         {editingUserId === user.id ? (
                             <div className="flex items-center space-x-2">
                                 <input
                                     type="text"
                                     value={editingUser.name}
                                     onChange={(e) => setEditingUser({ ...editingUser, name: e.target.value })}
-                                    className="border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-blue-400"
+                                    className="border p-2"
                                     placeholder="Name"
                                 />
                                 <input
                                     type="text"
                                     value={editingUser.username}
                                     onChange={(e) => setEditingUser({ ...editingUser, username: e.target.value })}
-                                    className="border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-blue-400"
+                                    className="border p-2"
                                     placeholder="Username"
                                 />
                                 <select
                                     value={editingUser.role}
                                     onChange={(e) => setEditingUser({ ...editingUser, role: e.target.value })}
-                                    className="border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-blue-400"
+                                    className="border p-2"
                                 >
                                     <option value="User">User</option>
                                     <option value="Admin">Admin</option>
                                 </select>
-                                <button onClick={handleEditUser} className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md transition-colors duration-200">
+                                <button onClick={handleEditUser} className="save-btn">
                                     Save
                                 </button>
                             </div>
                         ) : (
                             <div className="flex w-full justify-between items-center">
-                                <div>
-                                    <p className="text-lg font-medium text-gray-800">{user.username} <span className="text-gray-600">({user.name})</span></p>
-                                    <p className="text-sm text-gray-500">Role: {user.role}</p>
+                                <div className="user-details">
+                                    <p className="username">{user.username} <span className="name">({user.name})</span></p>
+                                    <p className="role">Role: {user.role}</p>
                                 </div>
-                                <div className="flex space-x-2">
+                                <div className="user-actions">
                                     <button
                                         onClick={() => handleEditClick(user)}
-                                        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors duration-200"
+                                        className="edit-btn"
                                     >
                                         Edit
                                     </button>
                                     <button
                                         onClick={() => handleDeleteUser(user.id)}
-                                        className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition-colors duration-200"
+                                        className="delete-btn"
                                     >
                                         Delete
                                     </button>

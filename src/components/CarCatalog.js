@@ -3,6 +3,7 @@ import { carService } from '../services/carService';
 import { orderService } from '../services/orderService';
 import { useNavigate } from 'react-router-dom';
 import { authService } from '../services/authService';
+import './CarCatalog.css'; // Importing the CSS file
 
 const CarCatalog = () => {
   const [cars, setCars] = useState([]);
@@ -59,26 +60,23 @@ const CarCatalog = () => {
   });
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex justify-end mb-6">
-        <button
-          onClick={handleProfileClick}
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-        >
+    <div className="car-catalog-container">
+      <div className="profile-btn-container">
+        <button onClick={handleProfileClick} className="btn-profile">
           Profile
         </button>
       </div>
 
-      <h1 className="text-3xl font-bold mb-6">Car Catalog</h1>
+      <h1 className="catalog-title">Car Catalog</h1>
 
-      <div className="flex space-x-4 mb-6">
+      <div className="filter-container">
         <input
           type="text"
           name="brand"
           value={filters.brand}
           onChange={handleFilterChange}
           placeholder="Search by Brand"
-          className="border p-2 rounded"
+          className="filter-input"
         />
         <input
           type="number"
@@ -86,7 +84,7 @@ const CarCatalog = () => {
           value={filters.prodYear}
           onChange={handleFilterChange}
           placeholder="Search by Production Year"
-          className="border p-2 rounded"
+          className="filter-input"
         />
         <input
           type="number"
@@ -94,22 +92,19 @@ const CarCatalog = () => {
           value={filters.price}
           onChange={handleFilterChange}
           placeholder="Max Price"
-          className="border p-2 rounded"
+          className="filter-input"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="cars-grid">
         {filteredCars.map((car) => (
-          <div key={car.id} className="border p-4 rounded shadow">
-            <img src={car.pic} alt={car.name} className="w-full h-48 object-cover mb-4" />
-            <h2 className="text-xl font-bold">{car.name}</h2>
+          <div key={car.id} className="car-card">
+            <img src={car.pic} alt={car.name} className="car-image" />
+            <h2 className="car-name">{car.name}</h2>
             <p>Brand: {car.brand}</p>
             <p>Year: {new Date(car.prodYear).getFullYear()}</p>
             <p>Price: ${car.price}</p>
-            <button
-              className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mt-4"
-              onClick={() => handleOrder(car.id, car.name)}
-            >
+            <button className="btn-order" onClick={() => handleOrder(car.id, car.name)}>
               Order Now
             </button>
           </div>

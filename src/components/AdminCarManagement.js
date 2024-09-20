@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import {carService} from '../services/carService';
+import { carService } from '../services/carService';
+import './AdminCarManagement.css'; // Import your CSS file
 
 const AdminCarManagement = () => {
   const [cars, setCars] = useState([]);
@@ -50,7 +51,7 @@ const AdminCarManagement = () => {
     setCarForm({
       name: car.name,
       brand: car.brand,
-      prodYear: new Date(car.prodYear).toISOString().split('T')[0], // Format date for input
+      prodYear: new Date(car.prodYear).toISOString().split('T')[0],
       price: car.price,
       stock: car.stock,
       pic: car.pic
@@ -64,18 +65,17 @@ const AdminCarManagement = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">Tambah Cars</h1>
+    <div className="container">
+      <h1>Manage Cars</h1>
 
-      <form onSubmit={handleSubmit} className="mb-6">
-        <div className="grid grid-cols-2 gap-4">
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-grid">
           <input
             type="text"
             name="name"
             value={carForm.name}
             onChange={handleInputChange}
             placeholder="Car Name"
-            className="border p-2 rounded"
             required
           />
           <input
@@ -84,7 +84,6 @@ const AdminCarManagement = () => {
             value={carForm.brand}
             onChange={handleInputChange}
             placeholder="Brand"
-            className="border p-2 rounded"
             required
           />
           <input
@@ -92,8 +91,6 @@ const AdminCarManagement = () => {
             name="prodYear"
             value={carForm.prodYear}
             onChange={handleInputChange}
-            placeholder="Production Year"
-            className="border p-2 rounded"
             required
           />
           <input
@@ -102,7 +99,6 @@ const AdminCarManagement = () => {
             value={carForm.price}
             onChange={handleInputChange}
             placeholder="Price"
-            className="border p-2 rounded"
             required
           />
           <input
@@ -111,7 +107,6 @@ const AdminCarManagement = () => {
             value={carForm.stock}
             onChange={handleInputChange}
             placeholder="Stock"
-            className="border p-2 rounded"
             required
           />
           <input
@@ -120,48 +115,44 @@ const AdminCarManagement = () => {
             value={carForm.pic}
             onChange={handleInputChange}
             placeholder="Picture URL"
-            className="border p-2 rounded"
             required
           />
         </div>
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-        >
+        <button type="submit">
           {editingCar ? 'Update Car' : 'Add Car'}
         </button>
       </form>
 
-      <table className="min-w-full table-auto">
-        <thead className="bg-gray-800 text-white">
+      <table className="table">
+        <thead>
           <tr>
-            <th className="px-4 py-2">Kode Mobil</th>
-            <th className="px-4 py-2">Name</th>
-            <th className="px-4 py-2">Brand</th>
-            <th className="px-4 py-2">Tahun</th>
-            <th className="px-4 py-2">Harga</th>
-            <th className="px-4 py-2">Stok</th>
-            <th className="px-4 py-2">Actions</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {cars.map((car) => (
-            <tr key={car.id} className="bg-gray-100">
-              <td className="border px-4 py-2">{car.id}</td>
-              <td className="border px-4 py-2">{car.name}</td>
-              <td className="border px-4 py-2">{car.brand}</td>
-              <td className="border px-4 py-2">{new Date(car.prodYear).getFullYear()}</td>
-              <td className="border px-4 py-2">${car.price}</td>
-              <td className="border px-4 py-2">{car.stock}</td>
-              <td className="border px-4 py-2">
+            <tr key={car.id}>
+              <td>{car.id}</td>
+              <td>{car.name}</td>
+              <td>{car.brand}</td>
+              <td>{new Date(car.prodYear).getFullYear()}</td>
+              <td>${car.price}</td>
+              <td>{car.stock}</td>
+              <td className="actions">
                 <button
-                  className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-3 rounded mr-2"
+                  className="edit-btn"
                   onClick={() => handleEdit(car)}
                 >
                   Edit
                 </button>
                 <button
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded"
+                  className="delete-btn"
                   onClick={() => handleDelete(car.id)}
                 >
                   Delete

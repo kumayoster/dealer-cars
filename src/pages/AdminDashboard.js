@@ -29,35 +29,35 @@ const AdminDashboard = () => {
       <div className="flex justify-center space-x-4 mb-8">
         <button
           className={`${selectedTab === 'users' ? 'bg-blue-500 text-white' : 'bg-white text-gray-700'
-            } transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white font-semibold py-2 px-6 rounded-lg shadow-md focus:ring focus:ring-blue-300`}
+            } transition duration-300 ease-in-out transform hover:scale-105 font-semibold py-2 px-6 rounded-lg shadow-md focus:ring focus:ring-blue-300`}
           onClick={() => setSelectedTab('users')}
         >
           User Management
         </button>
         <button
           className={`${selectedTab === 'cars' ? 'bg-blue-500 text-white' : 'bg-white text-gray-700'
-            } transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white font-semibold py-2 px-6 rounded-lg shadow-md focus:ring focus:ring-blue-300`}
+            } transition duration-300 ease-in-out transform hover:scale-105 font-semibold py-2 px-6 rounded-lg shadow-md focus:ring focus:ring-blue-300`}
           onClick={() => setSelectedTab('cars')}
         >
           Car Management
         </button>
         <button
           className={`${selectedTab === 'orders' ? 'bg-blue-500 text-white' : 'bg-white text-gray-700'
-            } transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white font-semibold py-2 px-6 rounded-lg shadow-md focus:ring focus:ring-blue-300`}
+            } transition duration-300 ease-in-out transform hover:scale-105 font-semibold py-2 px-6 rounded-lg shadow-md focus:ring focus:ring-blue-300`}
           onClick={() => setSelectedTab('orders')}
         >
           Order Management
         </button>
         <button
           className={`${selectedTab === 'sales' ? 'bg-blue-500 text-white' : 'bg-white text-gray-700'
-            } transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white font-semibold py-2 px-6 rounded-lg shadow-md focus:ring focus:ring-blue-300`}
+            } transition duration-300 ease-in-out transform hover:scale-105 font-semibold py-2 px-6 rounded-lg shadow-md focus:ring focus:ring-blue-300`}
           onClick={() => setSelectedTab('sales')}
         >
           Sales Report
         </button>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="content-area bg-white p-6 rounded-lg shadow-md fade-slide">
         {renderContent()}
       </div>
     </div>
